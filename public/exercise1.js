@@ -8,7 +8,11 @@ let reducer1 = (state = 0, action) => {
 	// 2) return state + 1 if it's and "INCREMENT"
 	// 3) otherwise just return state
 	// (HINT - look at the other exercises to see what might go here)
-	return state;
+	if (action.type == "INCREMENT") {
+		return state + 1;
+	} else {
+		return state;
+	}
 }
 
 let store1 = Redux.createStore(reducer1);
@@ -24,5 +28,5 @@ store1.subscribe(()=>{
 buttonHTML.addEventListener('click', (e)=>{
 	store1.dispatch({
 		type: "INCREMENT"
-	})
-})
+	});
+});

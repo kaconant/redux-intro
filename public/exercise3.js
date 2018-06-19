@@ -8,7 +8,7 @@ let defaultState = {
 
 let reducer3 = (state = defaultState, action) => {
 
-	var stateCopy = Object.assign({}, state);// This is a very ES5 way to copy an object 
+	var stateCopy = Object.assign({}, state); // This is a very ES5 way to copy an object 
 
 	if (action.type == "CLICK_CHECKBOX") {
 		stateCopy.isChecked = !stateCopy.isChecked;
@@ -29,6 +29,14 @@ let checkboxLabelHTML = document.getElementById('checkbox-label');
 // use the current state to decide whether checkboxLabelHTML needs to be 'checked' or 'unchecked'
 // use checkboxLabelHTML.innerHTML == ...   to update the label with the correct word
 
+store3.subscribe(()=>{
+	let currentState = store3.getState();
+	if (currentState.isChecked) {
+		checkboxLabelHTML.innerHTML = "checked";
+	} else {
+		checkboxLabelHTML.innerHTML = "unchecked";
+	}
+})
 
 checkboxHTML.addEventListener('change', (e)=>{
 	store3.dispatch({
