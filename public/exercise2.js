@@ -7,10 +7,9 @@ let reducer2 = (state = 0, action) => {
 		return state + 1
 	} else if (action.type == "DECREMENT") {
 		return state - 1
-	} else {
-		return state;
 	}
-};
+		return state;
+}
 
 let store2 = Redux.createStore(reducer2);
 

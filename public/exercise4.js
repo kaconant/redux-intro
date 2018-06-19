@@ -10,16 +10,28 @@ let defaultTodos = {
 
 // write a reducer that updated the todos array whenever a ADD_TODO action is dispatched
 let reducer4 = (state = defaultTodos, action) => {
-	let newState = {}
-	
 	if (action.type == "ADD_TODO") {
+		let { todoText } = action; // let todoText = action.todoText;
+		
 		return {
-			todos: [
-				...state.todos, action.todoText
-			]
+			todos: state.todos.concat(todoText)
 		}
 	}
+	return state;
 };
+
+//  per Josh G:
+//  let reducer4 = (state = defaultTodos, action) => {
+// 		let newState = {}
+	
+// 		if (action.type == "ADD_TODO") {
+// 			return {
+// 				todos: [
+// 					...state.todos, action.todoText
+// 				]
+// 			}
+// 		}
+// };
 
 let store4 = Redux.createStore(reducer4);
 
@@ -39,7 +51,6 @@ store4.subscribe(()=>{
 })
 
 addTodoHTML.addEventListener('click', (e)=>{
-	console.log(inputHTML.value)
 	store4.dispatch({
 		type: "ADD_TODO",
 		todoText: inputHTML.value

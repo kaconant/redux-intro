@@ -11,7 +11,7 @@ let reducer3 = (state = defaultState, action) => {
 	var stateCopy = Object.assign({}, state); // This is a very ES5 way to copy an object 
 
 	if (action.type == "CLICK_CHECKBOX") {
-		stateCopy.isChecked = !stateCopy.isChecked;
+		stateCopy.isChecked = !stateCopy.isChecked; // return toggled version of the state
 		return stateCopy;
 	}
 

@@ -28,5 +28,5 @@ store1.subscribe(()=>{
 buttonHTML.addEventListener('click', (e)=>{
 	store1.dispatch({
 		type: "INCREMENT"
-	});
-});
+	})
+})
